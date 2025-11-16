@@ -1,11 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',  // Statik export üçün VACIB
+  output: 'export',
   images: {
-    unoptimized: true,  // GitHub Pages image optimization dəstəkləmir
+    unoptimized: true,
   },
-  basePath: '',  // Custom domain üçün boş
-  trailingSlash: true,  // URL-lərdə slash əlavə edir
+  // basePath və assetPrefix SILIN və ya boş buraxın
 };
 
 module.exports = nextConfig;
