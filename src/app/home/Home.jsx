@@ -400,13 +400,13 @@ const BranchesSection = () => {
 
   const branches = [
     {
-      image: '/image/DSC00727.jpg',
+      image: '/image/tarqovu.jpg',
       phone: '+994706770677',
       email: 'thaitherapy.baku@gmail.com',
       hours: '11:00 - 21:00'
     },
     {
-      image: '/image/IMG_9356.jpg',
+      image: '/image/yenihayat.jpg',
       phone: '+994707370677',
       email: 'thaitherapy.baku@gmail.com',
       hours: '11:00 - 21:00'
