@@ -15,7 +15,6 @@ function LayoutContent({ children }) {
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1000); 
-
     return () => clearTimeout(timer);
   }, [pathname]); 
 
@@ -29,6 +28,11 @@ function LayoutContent({ children }) {
 export default function RootLayout({ children }) {
   return (
     <html lang="az">
+      <head>
+        <title>Thai Therapy - Masaj və Relaksasiya Mərkəzi</title>
+        <meta name="description" content="Peşəkar Thai masajı və relaksasiya xidmətləri" />
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body>
         <StoreProvider>
           <LayoutContent>{children}</LayoutContent>
