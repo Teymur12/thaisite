@@ -14,7 +14,7 @@ function LayoutContent({ children }) {
     setLoading(true);
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1000); 
+    }, 300); 
     return () => clearTimeout(timer);
   }, [pathname]); 
 
