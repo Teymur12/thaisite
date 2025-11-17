@@ -31,32 +31,4 @@
     <priority>0.7</priority>
   </url>
 </urlset>
-```
 
-6. **Commit changes** edin
-
----
-
-## **robots.txt də yaradın:**
-
-`/public/robots.txt` yaradın:
-```
-User-agent: *
-Allow: /
-
-Sitemap: https://thai-therapy.com/sitemap.xml
-```
-
----
-
-## **Build gözləyin:**
-
-- **Actions** tabında yeni deployment bitənə qədər gözləyin (2-3 dəqiqə)
-
----
-
-## **Yoxlayın:**
-
-Brauzerə yazın:
-```
-https://thai-therapy.com/sitemap.xml
