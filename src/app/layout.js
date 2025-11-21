@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
       <head>
         <title>Thai Health Therapy - Masaj və Relaksasiya Mərkəzi</title>
         <meta name="description" content="Peşəkar Thai masajı və relaksasiya xidmətləri" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/image/favicon.ico" />
       </head>
       <body>
         <StoreProvider>
