@@ -25,6 +25,18 @@ function LayoutContent({ children }) {
   return children;
 }
 
+export const metadata = {
+  title: "Thai Health Therapy - Masaj və Relaksasiya Mərkəzi",
+  description: "Peşəkar Thai masajı və relaksasiya xidmətləri",
+  icons: {
+    icon: "/favicon.ico",
+    other: [
+      { rel: "icon", url: "/icon.png" },
+      { rel: "apple-touch-icon", url: "/apple-touch-icon.png" }
+    ]
+  }
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="az">
