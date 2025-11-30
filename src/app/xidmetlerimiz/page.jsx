@@ -40,9 +40,9 @@ const Navigation = () => {
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#002F1E] backdrop-blur-lg shadow-lg' : 'bg-emerald-950/95'}`}>
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
-          <div className="flex items-center gap-2 md:gap-4">
-            <ThaiLogoImg className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover pointer-events-none select-none" draggable="false" />
-            <div className="text-base sm:text-xl md:text-2xl font-[var(--font-cormorant)] text-[#C1B185] tracking-wider select-none">THAI HEALTH THERAPY</div>
+          <div className="flex items-center gap-4">
+            <ThaiLogoImg className="w-12 h-12 rounded-full object-cover pointer-events-none select-none" draggable="false" />
+            <div className="text-2xl font-[var(--font-cormorant)] text-[#C1B185] tracking-wider select-none">THAI HEALTH THERAPY</div>
           </div>
 
           <div className="hidden md:flex items-center gap-8">
@@ -74,25 +74,25 @@ const Navigation = () => {
             </div>
           </div>
 
-          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-[#C1B185] p-1">
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-[#C1B185] p-2">
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
 
         {isOpen && (
-          <div className="md:hidden mt-3 space-y-2 pb-3">
-            <ul className="space-y-1">
+          <div className="md:hidden mt-4 space-y-4 pb-4">
+            <ul className="space-y-4">
               {navItems.map((item) => (
                 <li key={item.label}>
-                  <a href={item.href} onClick={() => setIsOpen(false)} className="block text-[#C1B185] text-sm hover:text-amber-300 transition-colors py-1.5">{item.label}</a>
+                  <a href={item.href} onClick={() => setIsOpen(false)} className="block text-[#C1B185] text-lg hover:text-amber-300 transition-colors">{item.label}</a>
                 </li>
               ))}
             </ul>
-            <div className="pt-2 border-t border-amber-400/30">
-              <div className="flex gap-2 justify-center flex-wrap">
+            <div className="pt-4 border-t border-amber-400/30">
+              <div className="flex gap-3 justify-center">
                 {languages.map((lang) => (
-                  <button key={lang.code} onClick={() => { handleLanguageChange(lang.code); setIsOpen(false); }} className={`px-2.5 py-1 rounded-full transition-all text-xs ${language === lang.code ? 'bg-amber-400 text-emerald-950 font-bold' : 'bg-amber-400/20 text-[#C1B185] hover:bg-amber-400/30'}`}>
-                    {lang.code.toUpperCase()}
+                  <button key={lang.code} onClick={() => { handleLanguageChange(lang.code); setIsOpen(false); }} className={`px-4 py-2 rounded-full transition-all ${language === lang.code ? 'bg-amber-400 text-emerald-950 font-bold' : 'bg-amber-400/20 text-[#C1B185] hover:bg-amber-400/30'}`}>
+                    <span className="text-sm">{lang.code.toUpperCase()}</span>
                   </button>
                 ))}
               </div>
@@ -103,6 +103,8 @@ const Navigation = () => {
     </nav>
   );
 };
+
+
 
 const Footer = () => {
   const language = useSelector((state) => state.language.current);
