@@ -29,8 +29,8 @@ const Navigation = () => {
 
   const translations = {
     az: { nav: [{ label: 'Ana Səhifə', href: '/' }, { label: 'Xidmətlər', href: '/xidmetlerimiz' }, { label: 'Qiymətlər', href: '/qiymetler' }, { label: 'Filiallar', href: '/filiallar' }, { label: 'Əlaqə', href: '/contact' }] },
-    ru: { nav: [{ label: 'Главная', href: '/' },  { label: 'Услуги', href: '/xidmetlerimiz' }, { label: 'Цены', href: '/qiymetler' }, { label: 'Филиалы', href: '/filiallar' }, { label: 'Контакты', href: '/contact' }] },
-    en: { nav: [{ label: 'Home', href: '/' },  { label: 'Services', href: '/xidmetlerimiz' }, { label: 'Prices', href: '/qiymetler' }, { label: 'Branches', href: '/filiallar' }, { label: 'Contact', href: '/contact' }] }
+    ru: { nav: [{ label: 'Главная', href: '/' }, { label: 'Услуги', href: '/xidmetlerimiz' }, { label: 'Цены', href: '/qiymetler' }, { label: 'Филиалы', href: '/filiallar' }, { label: 'Контакты', href: '/contact' }] },
+    en: { nav: [{ label: 'Home', href: '/' }, { label: 'Services', href: '/xidmetlerimiz' }, { label: 'Prices', href: '/qiymetler' }, { label: 'Branches', href: '/filiallar' }, { label: 'Contact', href: '/contact' }] }
   };
 
   const languages = [{ code: 'az', name: 'Azərbaycanca' }, { code: 'ru', name: 'Русский' }, { code: 'en', name: 'English' }];
@@ -106,29 +106,29 @@ const Navigation = () => {
 
 const Footer = () => {
   const language = useSelector((state) => state.language.current);
-  
+
   const t = {
-    az: { 
-      about: 'Ənənəvi Thai masaj təcrübəsi ilə bədən və ruhun harmoniyası. Peşəkar komandamız sizin sağlamlığınız və rahatlığınız üçün işləyir.', 
-      contact: 'Əlaqə', 
+    az: {
+      about: 'Ənənəvi Thai masaj təcrübəsi ilə bədən və ruhun harmoniyası. Peşəkar komandamız sizin sağlamlığınız və rahatlığınız üçün işləyir.',
+      contact: 'Əlaqə',
       rights: 'Bütün hüquqlar qorunur.',
       branches: [
         { name: 'Tarqovı filialı', address: 'Lev Tolstoy 131, CUM yaxınlığı' },
         { name: 'Yeni Həyat filialı', address: 'Yeni Həyat Plaza' }
       ]
     },
-    ru: { 
-      about: 'Гармония тела и души через традиционную практику тайского массажа. Наша профессиональная команда работает для вашего здоровья и комфорта.', 
-      contact: 'Контакты', 
+    ru: {
+      about: 'Гармония тела и души через традиционную практику тайского массажа. Наша профессиональная команда работает для вашего здоровья и комфорта.',
+      contact: 'Контакты',
       rights: 'Все права защищены.',
       branches: [
         { name: 'Филиал на Торговой', address: 'Лев Толстой 131, Рядом с ЦУМом' },
         { name: 'Филиал Ени Хаят', address: 'Ени Хаят' }
       ]
     },
-    en: { 
-      about: 'Harmony of body and soul through traditional Thai massage practice. Our professional team works for your health and comfort.', 
-      contact: 'Contact', 
+    en: {
+      about: 'Harmony of body and soul through traditional Thai massage practice. Our professional team works for your health and comfort.',
+      contact: 'Contact',
       rights: 'All rights reserved.',
       branches: [
         { name: 'Tarqoviy branch', address: 'Lev Tolstoy 131, Near CUM' },
@@ -196,7 +196,7 @@ const Footer = () => {
 
 const PricingPage = () => {
   const language = useSelector((state) => state.language.current);
-  const [selectedBranch, setSelectedBranch] = useState('yeniHeyat');
+  /* Removed branch selection state and logic */
 
   const translations = {
     az: {
@@ -204,8 +204,6 @@ const PricingPage = () => {
       subtitle: 'Hər masaj üçün ətraflı qiymət',
       minute: 'dəq',
       bookNow: 'İndi Rezervasiya Et',
-      yeniHeyat: 'Yeni Həyat Plaza',
-      cumYaxinligi: 'Tarqovu filialı',
       services: {
         'Aroma Relax': 'Aroma Relax',
         'Thai Relax': 'Thai Relax',
@@ -232,8 +230,6 @@ const PricingPage = () => {
       subtitle: 'Подробные цены на каждый массаж',
       minute: 'мин',
       bookNow: 'Забронировать сейчас',
-      yeniHeyat: 'Yeni Heyat Plaza',
-      cumYaxinligi: 'Филиал на Торговой',
       services: {
         'Aroma Relax': 'Арома Релакс',
         'Thai Relax': 'Тайский Релакс',
@@ -260,8 +256,6 @@ const PricingPage = () => {
       subtitle: 'Detailed prices for each massage',
       minute: 'min',
       bookNow: 'Book Now',
-      yeniHeyat: 'Yeni Hayat Plaza',
-      cumYaxinligi: 'Tarqovu branch',
       services: {
         'Aroma Relax': 'Aroma Relax',
         'Thai Relax': 'Thai Relax',
@@ -287,43 +281,23 @@ const PricingPage = () => {
 
   const t = translations[language];
 
-  const branchServices = {
-    yeniHeyat: [
-      { id: 1, name: 'Aroma Relax', pricing: [{ duration: 60, price: 59 }, { duration: 90, price: 85 }, { duration: 120, price: 109 }] },
-      { id: 2, name: 'Thai Relax', pricing: [{ duration: 60, price: 59 }, { duration: 90, price: 85 }, { duration: 120, price: 109 }] },
-      { id: 3, name: 'Deep Tissue', pricing: [{ duration: 60, price: 59 }, { duration: 90, price: 85 }, { duration: 120, price: 109 }] },
-      { id: 4, name: 'Aroma Deep', pricing: [{ duration: 60, price: 59 }, { duration: 90, price: 85 }, { duration: 120, price: 109 }] },
-      { id: 5, name: 'With Scrub', pricing: [{ duration: 60, price: 79 }, { duration: 120, price: 149 }] },
-      { id: 6, name: 'Head & Shoulders', pricing: [{ duration: 45, price: 65 }] },
-      { id: 7, name: 'Thai Herbal Bags', pricing: [{ duration: 90, price: 85 }, { duration: 120, price: 150 }] },
-      { id: 8, name: 'Leg Massage', pricing: [{ duration: 30, price: 35 }, { duration: 60, price: 65 }] },
-      { id: 9, name: 'Foot Massage', pricing: [{ duration: 45, price: 65 }] },
-      { id: 10, name: 'Face Massage', pricing: [{ duration: 30, price: 40 }, { duration: 60, price: 65 }] },
-      { id: 11, name: 'Head Massage with Coconut Oil', pricing: [{ duration: 60, price: 75 }] },
-      { id: 12, name: 'Upper Body Massage', pricing: [{ duration: 60, price: 65 }] },
-      { id: 13, name: '4 Hands Massage', pricing: [{ duration: 60, price: 105 }, { duration: 90, price: 150 }, { duration: 120, price: 200 }] },
-      { id: 14, name: 'Hot Stone Massage', pricing: [{ duration: 90, price: 85 }, { duration: 120, price: 110 }] }
-    ],
-    cumYaxinligi: [
-      { id: 1, name: 'Aroma Relax', pricing: [{ duration: 60, price: 49 }, { duration: 90, price: 67 }, { duration: 120, price: 90 }] },
-      { id: 2, name: 'Thai Relax', pricing: [{ duration: 60, price: 49 }, { duration: 90, price: 67 }, { duration: 120, price: 90 }] },
-      { id: 3, name: 'Deep Tissue', pricing: [{ duration: 60, price: 49 }, { duration: 90, price: 70 }, { duration: 120, price: 95 }] },
-      { id: 4, name: 'Aroma Deep', pricing: [{ duration: 60, price: 49 }, { duration: 90, price: 70 }, { duration: 120, price: 95 }] },
-      { id: 5, name: 'With Scrub', pricing: [{ duration: 60, price: 65 }, { duration: 120, price: 130 }] },
-      { id: 6, name: 'Head & Shoulders', pricing: [{ duration: 45, price: 50 }] },
-      { id: 7, name: 'Thai Herbal Bags', pricing: [{ duration: 90, price: 70 }, { duration: 120, price: 140 }] },
-      { id: 8, name: 'Leg Massage', pricing: [{ duration: 30, price: 25 }, { duration: 60, price: 50 }] },
-      { id: 9, name: 'Foot Massage for Health', pricing: [{ duration: 45, price: 50 }] },
-      { id: 10, name: 'Facial Massage', pricing: [{ duration: 30, price: 30 }, { duration: 60, price: 50 }] },
-      { id: 11, name: 'Head Massage with Coconut Oil', pricing: [{ duration: 60, price: 60 }] },
-      { id: 12, name: 'Upper Body Massage', pricing: [{ duration: 60, price: 50 }] },
-      { id: 13, name: '4 Hands Aroma Oil Massage', pricing: [{ duration: 60, price: 90 }, { duration: 90, price: 134 }, { duration: 120, price: 180 }] },
-      { id: 14, name: 'Hot Stone Massage', pricing: [{ duration: 90, price: 70 }, { duration: 120, price: 95 }] },
-      { id: 15, name: 'Anti-cellulite Massage', pricing: [{ duration: 60, price: 69 }] }
-    ]
-  };
-
-  const services = branchServices[selectedBranch];
+  const services = [
+    { id: 1, name: 'Aroma Relax', pricing: [{ duration: 60, price: 49 }, { duration: 90, price: 67 }, { duration: 120, price: 90 }] },
+    { id: 2, name: 'Thai Relax', pricing: [{ duration: 60, price: 49 }, { duration: 90, price: 67 }, { duration: 120, price: 90 }] },
+    { id: 3, name: 'Deep Tissue', pricing: [{ duration: 60, price: 49 }, { duration: 90, price: 70 }, { duration: 120, price: 95 }] },
+    { id: 4, name: 'Aroma Deep', pricing: [{ duration: 60, price: 49 }, { duration: 90, price: 70 }, { duration: 120, price: 95 }] },
+    { id: 5, name: 'With Scrub', pricing: [{ duration: 60, price: 65 }, { duration: 120, price: 130 }] },
+    { id: 6, name: 'Head & Shoulders', pricing: [{ duration: 45, price: 50 }] },
+    { id: 7, name: 'Thai Herbal Bags', pricing: [{ duration: 90, price: 70 }, { duration: 120, price: 140 }] },
+    { id: 8, name: 'Leg Massage', pricing: [{ duration: 30, price: 25 }, { duration: 60, price: 50 }] },
+    { id: 9, name: 'Foot Massage for Health', pricing: [{ duration: 45, price: 50 }] },
+    { id: 10, name: 'Facial Massage', pricing: [{ duration: 30, price: 30 }, { duration: 60, price: 50 }] },
+    { id: 11, name: 'Head Massage with Coconut Oil', pricing: [{ duration: 60, price: 60 }] },
+    { id: 12, name: 'Upper Body Massage', pricing: [{ duration: 60, price: 50 }] },
+    { id: 13, name: '4 Hands Aroma Oil Massage', pricing: [{ duration: 60, price: 90 }, { duration: 90, price: 134 }, { duration: 120, price: 180 }] },
+    { id: 14, name: 'Hot Stone Massage', pricing: [{ duration: 90, price: 70 }, { duration: 120, price: 95 }] },
+    { id: 15, name: 'Anti-cellulite Massage', pricing: [{ duration: 45, price: 75 }] }
+  ];
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -334,14 +308,7 @@ const PricingPage = () => {
         <div className="max-w-6xl mx-auto text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold text-[#C1B185] mb-4 animate-fade-in">{t.title}</h1>
           <div className="w-20 h-1 bg-[#C1B185] mx-auto mb-6 animate-pulse"></div>
-          <p className="text-xl text-gray-200 animate-fade-in" style={{animationDelay: '0.2s'}}>{t.subtitle}</p>
-        </div>
-      </div>
-
-      <div className="max-w-6xl mx-auto px-6 py-8">
-        <div className="flex justify-center gap-4 flex-wrap">
-          <button onClick={() => setSelectedBranch('yeniHeyat')} className={`px-8 py-3 rounded-xl font-bold text-lg transition-all ${selectedBranch === 'yeniHeyat' ? 'bg-emerald-800 text-white shadow-lg scale-105' : 'bg-white text-emerald-800 hover:bg-emerald-50 border-2 border-emerald-500'}`}>{t.yeniHeyat}</button>
-          <button onClick={() => setSelectedBranch('cumYaxinligi')} className={`px-8 py-3 rounded-xl font-bold text-lg transition-all ${selectedBranch === 'cumYaxinligi' ? 'bg-emerald-800 text-white shadow-lg scale-105' : 'bg-white text-emerald-800 hover:bg-emerald-50 border-2 border-emerald-700'}`}>{t.cumYaxinligi}</button>
+          <p className="text-xl text-gray-200 animate-fade-in" style={{ animationDelay: '0.2s' }}>{t.subtitle}</p>
         </div>
       </div>
 
@@ -351,20 +318,20 @@ const PricingPage = () => {
             <div key={service.id} className="bg-white rounded-xl md:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border-l-4 border-[#C1B185] animate-slide-up" style={{ animationDelay: `${index * 100}ms` }}>
               <div className="p-3 md:p-8">
                 <h2 className="text-base md:text-3xl font-bold text-[#002F1E] text-center mb-2 md:mb-8">{t.services[service.name]}</h2>
-                <div className={`grid gap-2 md:gap-6 ${service.pricing.length === 1 ? 'grid-cols-1 max-w-[140px] md:max-w-md mx-auto' : service.pricing.length === 2 ? 'grid-cols-2 md:grid-cols-2 max-w-[300px] md:max-w-3xl mx-auto' : 'grid-cols-3 md:grid-cols-3 max-w-[480px] md:max-w-[650px] mx-auto'}`}>
+                <div className={`grid gap-3 sm:gap-4 md:gap-6 ${service.pricing.length === 1 ? 'grid-cols-1 max-w-[180px] sm:max-w-xs md:max-w-md mx-auto' : service.pricing.length === 2 ? 'grid-cols-2 max-w-sm sm:max-w-lg md:max-w-3xl mx-auto' : 'grid-cols-3 max-w-full sm:max-w-2xl md:max-w-[650px] mx-auto'}`}>
                   {service.pricing.map((price, idx) => (
-                    <div key={idx} className="bg-white rounded-lg md:rounded-xl p-2 md:p-6 border border-gray-200 hover:border-amber-400 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden group">
+                    <div key={idx} className="bg-white rounded-lg md:rounded-xl p-3 sm:p-4 md:p-6 border border-gray-200 hover:border-amber-400 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden group">
                       <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/50 to-amber-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       <div className="relative z-10 text-center">
-                        <div className="mb-1 md:mb-4 pb-1 md:pb-4 border-b border-gray-100">
-                          <div className="flex items-center justify-center gap-1 mb-0.5 md:mb-2">
-                            <Clock className="text-emerald-700 group-hover:text-amber-400 transition-colors" size={10} />
+                        <div className="mb-2 md:mb-4 pb-2 md:pb-4 border-b border-gray-100">
+                          <div className="flex items-center justify-center gap-1 mb-1 md:mb-2">
+                            <Clock className="text-emerald-700 group-hover:text-amber-400 transition-colors w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
                           </div>
-                          <span className="text-xs md:text-2xl font-bold text-[#002F1E]">{price.duration} {t.minute}</span>
+                          <span className="text-sm sm:text-lg md:text-2xl font-bold text-[#002F1E]">{price.duration} {t.minute}</span>
                         </div>
                         <div className="pt-1 md:pt-2">
-                          <div className="text-lg md:text-5xl font-bold text-[#C1B185] group-hover:scale-110 transition-transform">{price.price}</div>
-                          <span className="text-gray-600 font-semibold text-[10px] md:text-lg">AZN</span>
+                          <div className="text-xl sm:text-3xl md:text-5xl font-bold text-[#C1B185] group-hover:scale-110 transition-transform">{price.price}</div>
+                          <span className="text-gray-600 font-semibold text-xs sm:text-sm md:text-lg">AZN</span>
                         </div>
                       </div>
                     </div>
@@ -376,7 +343,7 @@ const PricingPage = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <button onClick={() => { const phone = selectedBranch === 'yeniHeyat' ? '994707370677' : '994706770677'; window.open(`https://wa.me/${phone}`, '_blank'); }} className="px-12 py-4 bg-emerald-800 hover:bg-emerald-900 text-white rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-lg">{t.bookNow}</button>
+          <button onClick={() => { window.open('https://wa.me/994706770677', '_blank'); }} className="px-12 py-4 bg-emerald-800 hover:bg-emerald-900 text-white rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-lg">{t.bookNow}</button>
         </div>
       </div>
 
@@ -394,7 +361,7 @@ const PricingPage = () => {
         .animate-fade-in { animation: fade-in 0.6s ease-out; }
         .animate-slide-up { animation: slide-up 0.6s ease-out forwards; opacity: 0; }
       `}</style>
-    </div>
+    </div >
   );
 };
 
