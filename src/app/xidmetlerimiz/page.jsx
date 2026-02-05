@@ -189,7 +189,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-amber-400/30 pt-8 text-center">
-          <p className="text-gray-400">&copy; 2025 Thai Health Therapy. {t.rights}</p>
+          <p className="text-gray-400">&copy; 2026 Thai Health Therapy. {t.rights}</p>
         </div>
       </div>
     </footer>
